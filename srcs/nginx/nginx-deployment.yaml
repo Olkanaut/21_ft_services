@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      name: nginx-pod
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx-container
+        image: nginx-image
+        imagePullPolicy: Never
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+          requests:
+              memory: "64Mi"
+        ports:
+        - containerPort: 80
+          name: http
+        - containerPort: 443
+          name: https
+        # - containerPort: 22
+        #   name: ssh
+
+# imagePullPolicy:Never
+# kubectl get deployment nginx-deployment -o yaml > nginx-deployment-result.yaml
