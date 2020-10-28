@@ -16,12 +16,13 @@ kubectl apply -f ./srcs/metallb/metallb.yaml ;
 
 echo "__________________________________ NGINX"
 kubectl create -f ./srcs/nginx/nginx-service.yaml
-sleep 5
+sleep 15
 # N_IP=$(kubectl get svc nginx-service -o=custom-columns='DATA:status.loadBalancer.ingress' | sed -n 2p | cut -d ":" -f2 | tr -d "]") ;
-TEMP=$(kubectl get svc nginx-service -o=custom-columns='DATA:status.loadBalancer.ingress' | sed -n 2p | tr -d "[maip:]")
 # echo "${N_IP}" ;
+TEMP=$(kubectl get svc nginx-service -o=custom-columns='m:status.loadBalancer.ingress' | sed -n 2p | tr -d "[maip:]")
 echo "${TEMP}" ;
-# docker build -t nginx-image --build-arg IP=${N_IP} ./srcs/nginx ;
 # docker build -t nginx-image --build-arg IP=${TEMP} ./srcs/nginx ;
 docker build -t nginx-image ./srcs/nginx ;
 kubectl apply -f ./srcs/nginx/nginx-deployment.yaml ;
+TEMP=$(kubectl get svc nginx-service -o=custom-columns='m:status.loadBalancer.ingress' | sed -n 2p | tr -d "[maip:]")
+echo "${TEMP}" ;
