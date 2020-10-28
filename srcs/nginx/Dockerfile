@@ -7,7 +7,7 @@ RUN			apk add openssl
 RUN			apk add openssh
 RUN			apk add supervisor
 RUN			apk add openrc
-ARG			IP
+# ARG			IP
 
 VOLUME		[ "/sys/fs/cgroup" ]
 RUN			mkdir -p /run/nginx && chown -R nginx:nginx /run/nginx
