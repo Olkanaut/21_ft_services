@@ -28,7 +28,7 @@ RUN			echo "daemon off;" >> /etc/nginx/nginx.conf
 
 COPY		./supervisord.conf /etc/supervisord.conf
 RUN			chmod +rw /etc/supervisord.conf
-RUN			echo -e "bshangsmatePa$$word10\nbshangsmatePa$$word10" | adduser bshang
+RUN			echo -e "bshangsPa$$word10\nbshangsPa$$word10" | adduser bshang
 
 COPY		./start.sh /tmp/start.sh
 RUN			chmod u+x /tmp/start.sh

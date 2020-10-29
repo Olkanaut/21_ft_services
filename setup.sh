@@ -40,3 +40,13 @@ kubectl apply -f ./srcs/mysql/mysql-deployment.yaml
 # kubectl apply -f ./srcs/mysql/mysql-pvc.yaml
 TEMP=$(kubectl get svc mysql-service -o=custom-columns='m:status.loadBalancer.ingress' | sed -n 2p | tr -d "[maip:]")
 echo "${TEMP}" ;
+
+echo "__________________________________ FTPS"
+# kubectl create -f ./srcs/ftps/ftps-service.yaml
+docker build -t ftps-image ./srcs/ftps
+kubectl apply -f ./srcs/ftps/ftps-deployment.yaml
+# kubectl apply -f ./srcs/ftps/ftps-pv.yaml
+# kubectl apply -f ./srcs/ftps/ftps-pvc.yaml
+TEMP=$(kubectl get svc ftps-service -o=custom-columns='m:status.loadBalancer.ingress' | sed -n 2p | tr -d "[maip:]")
+echo "${TEMP}" ; 
+
