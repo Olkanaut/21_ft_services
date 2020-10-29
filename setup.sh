@@ -48,5 +48,17 @@ kubectl apply -f ./srcs/ftps/ftps-deployment.yaml
 # kubectl apply -f ./srcs/ftps/ftps-pv.yaml
 # kubectl apply -f ./srcs/ftps/ftps-pvc.yaml
 TEMP=$(kubectl get svc ftps-service -o=custom-columns='m:status.loadBalancer.ingress' | sed -n 2p | tr -d "[maip:]")
-echo "${TEMP}" ; 
+echo "${TEMP}" ;
 
+echo "__________________________________ InfluxDB"
+docker build -t influxdb-image ./srcs/influxdb
+kubectl apply -f ./srcs/influxdb/influxdb-depl-service.yaml
+kubectl apply -f ./srcs/influxdb/influxdb-pv-pvc.yaml
+
+echo "__________________________________ Telegraf"
+docker build -t telegraf-image ./srcs/telegraf
+kubectl apply -f ./srcs/telegraf/telegraf-deployment.yaml
+
+echo "__________________________________ Grafana"
+docker build -t grafana-image ./srcs/grafana
+kubectl apply -f ./srcs/grafana/grafana-depl-service.yaml

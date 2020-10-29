@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: influxdb-deployment
+  labels:
+    app: influxdb
+spec:
+  selector:
+    matchLabels:
+      app: influxdb
+  template:
+    metadata:
+      name: influxdb-pod
+      labels:
+        app: influxdb
+    spec:
+      containers:
+      - name: influxdb-container
+        image: influxdb-image
+        imagePullPolicy: Never
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8086
+          name: influxdb
+        volumeMounts:
+          - mountPath: "/var/lib/influxdb/data"
+            name: influxdb-pv
+      volumes:
+      - name: influxdb-pv
+        persistentVolumeClaim:
+          claimName: influxdb-pvc-disk
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: influxdb-service
+spec:
+  selector:
+    app: influxdb
+  ports:
+  - port: 8086
+    targetPort: 8086
