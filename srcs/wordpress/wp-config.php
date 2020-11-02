@@ -37,6 +37,10 @@ define( 'DB_CHARSET', 'utf8' );
 /** The Database Collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
 
+define( 'WP_HOME', 'http://192.168.99.231:5050' ); # EXTERNAL IP
+define( 'WP_SITEURL', 'http://192.168.99.231:5050' ); # EXTERNAL IP
+
+
 /**#@+
  * Authentication Unique Keys and Salts.
  *
@@ -78,9 +82,6 @@ $table_prefix = 'wp_';
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
 define( 'WP_DEBUG', false );
-
-// define( 'WP_HOME', 'http://192.168.99.231:5050' ); # EXTERNAL IP
-// define( 'WP_SITEURL', 'http://192.168.99.231:5050' ); # EXTERNAL IP
 
 /* That's all, stop editing! Happy publishing. */
 
