@@ -1,3 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: telegraf-service
+  labels:
+    app: telegraf
+spec:
+  selector:
+    app: telegraf
+  ports:
+  - port: 999
+    name: telegraf-temp
+---
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -18,27 +32,18 @@ spec:
       - name: telegraf-container
         image: telegraf-image
         imagePullPolicy: Never
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
         volumeMounts:
-          - mountPath: "/var/run/docker.sock"
-            name: docker-socket
+          - name: telegraf-config
+            mountPath: /etc/telegraf/telegraf.conf
+            subPath: telegraf.conf
+            readOnly: true
+          - name: docker-socket
+            mountPath: /var/run/docker.sock
       volumes:
+        - name: telegraf-config
+          configMap:
+              name: telegraf-config
         - name: docker-socket
           hostPath:
             path: /var/run/docker.sock
             type: Socket
-
----
-
-apiVersion: v1
-kind: Service
-metadata:
-  name: telegraf-service
-  labels:
-    app: telegraf
-spec:
-  selector:
-    app: telegraf

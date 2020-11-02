@@ -52,8 +52,14 @@ echo "${TEMP}" ;
 
 echo "__________________________________ InfluxDB"
 docker build -t influxdb-image ./srcs/influxdb
-kubectl apply -f ./srcs/influxdb/influxdb-depl-service.yaml
+# kubectl apply -f ./srcs/influxdb/influxdb-depl-service.yaml
+# kubectl apply -f ./srcs/influxdb/influxdb-pv-pvc.yaml
+
+kubectl apply -f ./srcs/influxdb/influxdb-service.yaml
 kubectl apply -f ./srcs/influxdb/influxdb-pv-pvc.yaml
+kubectl apply -f ./srcs/influxdb/influxdb-configmap.yaml
+kubectl apply -f ./srcs/influxdb/influxdb-deployment.yaml
+
 
 echo "__________________________________ Telegraf"
 docker build -t telegraf-image ./srcs/telegraf

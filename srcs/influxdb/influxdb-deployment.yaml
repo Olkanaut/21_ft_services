@@ -8,6 +8,10 @@ spec:
   selector:
     matchLabels:
       app: influxdb
+  replicas: 1
+  strategy:
+    type: Recreate
+  minReadySeconds: 5
   template:
     metadata:
       name: influxdb-pod
@@ -24,24 +28,17 @@ spec:
             cpu: "500m"
         ports:
         - containerPort: 8086
-          name: influxdb
         volumeMounts:
-          - mountPath: "/var/lib/influxdb/data"
-            name: influxdb-pv
+          - name: influxdb-pv
+            mountPath: "/var/lib/influxdb"
+          - name: influxdb-config
+            mountPath: /etc/influxdb/influxdb.conf
+            subPath: influxdb.conf
+            readOnly: true
       volumes:
       - name: influxdb-pv
         persistentVolumeClaim:
-          claimName: influxdb-pvc-disk
-
----
-
-apiVersion: v1
-kind: Service
-metadata:
-  name: influxdb-service
-spec:
-  selector:
-    app: influxdb
-  ports:
-  - port: 8086
-    targetPort: 8086
+          claimName: influxdb-pvc
+      - name: influxdb-config
+        configMap:
+            name: influxdb-config
