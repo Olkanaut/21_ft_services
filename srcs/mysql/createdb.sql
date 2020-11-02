@@ -1,5 +1,4 @@
 CREATE DATABASE wordpress;
 
-CREATE USER 'bshang'@'localhost' IDENTIFIED BY 'password';
-GRANT ALL PRIVILEGES ON wordpress.* TO 'bshang'@'localhost';
+GRANT ALL PRIVILEGES ON *.* TO 'bshang'@'%' IDENTIFIED BY 'mypass' WITH GRANT OPTION;
 FLUSH PRIVILEGES;

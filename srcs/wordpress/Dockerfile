@@ -8,6 +8,7 @@ RUN			apk add php7 \
 			php7-mbstring \
 			php7-session
 
+RUN			mkdir -p /usr/share/webapps/
 
 ADD			https://wordpress.org/latest.tar.gz /etc/
 RUN			tar -xvf /etc/latest.tar.gz -C /etc > /dev/null && rm -f /etc/latest.tar.gz > /dev/null

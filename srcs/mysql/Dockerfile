@@ -6,17 +6,16 @@ RUN			apk add mysql mysql-client supervisor
 
 RUN			mkdir -p /run/mysql && chown -R mysql:mysql /run/mysql
 
+COPY		/createdb.sql /tmp/
+# COPY		/wordpress.sql /tmp/wordpress.sql
+COPY		/my.cnf /etc/my.cnf
 COPY		/start.sh /tmp/
 RUN			chmod +x /tmp/start.sh
 
-COPY		/createdb.sql /tmp/
-# COPY		./wordpress.sql /tmp/wordpress.sql
-# COPY		/my.cnf /etc/mysql/
-
 EXPOSE		3306
-VOLUME		/var/lib/mysql
+# VOLUME		/var/lib/mysql
 
-# ENTRYPOINT	sh /tmp/start.sh
+ENTRYPOINT	["/tmp/start.sh"]
 
 
 

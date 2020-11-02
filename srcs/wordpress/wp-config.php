@@ -26,7 +26,7 @@ define( 'DB_NAME', 'wordpress' );
 define( 'DB_USER', 'bshang' );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', 'password' );
+define( 'DB_PASSWORD', 'mypass' );
 
 /** MySQL hostname */
 define( 'DB_HOST', 'localhost' ); /////////_______________
@@ -46,14 +46,14 @@ define( 'DB_COLLATE', '' );
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         '!^4ki@9KL_=}9QW8/m,[)7Lp#(c?.GAM>Le- {,)jb! I$B>VS->.D2T}qOKKv$S');
-define('SECURE_AUTH_KEY',  's;&h-E~&vr>Tdtv<u?ua@dg4yc}q%vo(]hBu3>Mn.7.8&&Sf9L}V?%c[r-|w:{},');
-define('LOGGED_IN_KEY',    'IPkD|WKB}cWO t_V@nB7J5BzQCJS%K$3*930Z2||mPq)xjetv0O:ntiwAU5spnSd');
-define('NONCE_KEY',        'fpD8Gh-:-qbk*M4YW=BJ,w2R9aPZ8`-I~(Xi=D<otx:,uU$OD6|!U>5+Di+|?TSh');
-define('AUTH_SALT',        '01bVK?7|~u*#@Y(2YahYxF!QT&yP6Zn=*>sc~U=M%+1sPj-*E*Zsy/-fl?AtP5qk');
-define('SECURE_AUTH_SALT', '<cEX=ggg38hp/C%7R(c(Cym-.X@~{9si%T_O,f<,cx<t&F?CuQ%bIIVWgBvB+|MV');
-define('LOGGED_IN_SALT',   '+sz0M6c+%i5<S<B1+>ABPn!c);[R;yO{?:s4 AM<@*aio*_~_CKjD#NaR~]nUV/n');
-define('NONCE_SALT',       'Q,N|j@}K1.IlHY?XfE}r|L1e;dR709G_I.y;v$gmg/;>+OF{t^J([.eDFvNB3[uP');
+define('AUTH_KEY',         'fMX(+)TqX*C-?na*%7slHU)#Wh;=Zc+|#P:?Ap7xfv!o5*><=U_GBoq-nG;6n?19');
+define('SECURE_AUTH_KEY',  '-;cP9k)Kr@ABk~Q$RX]8#}bF()KlBA]!~.E[i{WF!H}o%q=^4xCqULo/n~93bntf');
+define('LOGGED_IN_KEY',    'FT0di7tmRb{E/(:03F1NZh`wpq<I%!IA+Ix<5[KEX=nl}+);]yVg9q6R.#Wv^aBR');
+define('NONCE_KEY',        'Wijr(%@,nuXcq:F%OkjibtQmtyv*23dD/PXx7$JAIS#7>--D].E=QBytFe-dn+KY');
+define('AUTH_SALT',        'Xzoa_U_{X6f^E;Q`-DNTvsBTg9(4Vhu6k.F{ H$q*SkakC|RM+|78PRk5|jPCOc5');
+define('SECURE_AUTH_SALT', '^P|#5&9A+:bN>_%:E`v~TE1]^u?+mO6m[q@bIq<+FhXB!snKRG5&!z/) Ko(Jfm-');
+define('LOGGED_IN_SALT',   'D][5ZWB3/[C^rh)Q7j:CQ(B0RN/of+4(=0sR`aLYC0!yJr_f,M?v*]1<7*=w4v-p');
+define('NONCE_SALT',       'L-&u=;oy;/mh:gun:l$:L2>hRXi9Yb+&xf3JRwX{>Up}$SZkSpx@$@#,QrBRq}Ra');
 
 /**#@-*/
 
@@ -79,8 +79,8 @@ $table_prefix = 'wp_';
  */
 define( 'WP_DEBUG', false );
 
-define( 'WP_HOME', 'http://192.168.99.231:5050' ); # EXTERNAL IP
-define( 'WP_SITEURL', 'http://192.168.99.231:5050' ); # EXTERNAL IP
+// define( 'WP_HOME', 'http://192.168.99.231:5050' ); # EXTERNAL IP
+// define( 'WP_SITEURL', 'http://192.168.99.231:5050' ); # EXTERNAL IP
 
 /* That's all, stop editing! Happy publishing. */
 

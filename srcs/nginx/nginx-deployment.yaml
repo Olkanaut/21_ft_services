@@ -35,5 +35,4 @@ spec:
         # - containerPort: 22
         #   name: ssh
 
-# imagePullPolicy:Never 
 # kubectl get deployment nginx-deployment -o yaml > nginx-deployment-result.yaml
