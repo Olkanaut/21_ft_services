@@ -21,12 +21,6 @@ spec:
       - name: nginx-container
         image: nginx-image
         imagePullPolicy: Never
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-          requests:
-              memory: "64Mi"
         ports:
         - containerPort: 80
           name: http
@@ -36,3 +30,9 @@ spec:
         #   name: ssh
 
 # kubectl get deployment nginx-deployment -o yaml > nginx-deployment-result.yaml
+        # resources:
+        #   limits:
+        #     memory: "128Mi"
+        #     cpu: "500m"
+        #   requests:
+        #       memory: "64Mi"
