@@ -39,19 +39,15 @@ spec:
       - name: phpmyadmin-container
         image: phpmyadmin-image
         imagePullPolicy: Never
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
         ports:
         - containerPort: 5000
-        env:
-        - name: PMA_HOST
-          value: mysql-service
-        - name: PMA-PORT
-          value: "3306"
-        - name: MYSQL_ROOT_PASSWORD
-          valueFrom:
-              secretKeyRef:
-                name: mysql-secret
-                key: root_password
+        # env:
+        # - name: PMA_HOST
+        #   value: mysql-service
+        # - name: PMA-PORT
+        #   value: "3306"
+        # - name: MYSQL_ROOT_PASSWORD
+        #   valueFrom:
+        #       secretKeyRef:
+        #         name: mysql-secret
+        #         key: root_password
