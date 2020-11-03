@@ -1,7 +1,7 @@
 FROM		alpine:latest
 
 RUN			apk update && apk upgrade
-RUN			apk add mysql mysql-client supervisor
+RUN			apk add mysql mysql-client supervisor > /dev/null
 # RUN			apk add openrc
 
 RUN			mkdir -p /run/mysql && chown -R mysql:mysql /run/mysql
