@@ -26,7 +26,8 @@ RUN			mv /etc/wordpress /www/
 
 
 COPY		supervisord.conf /etc/supervisord.conf
-COPY		./wp-config.php /etc/wordpress/
+# COPY		./wp-config.php /etc/wordpress/
+COPY		./wp-config.php /www/wordpress/
 COPY		./start.sh /tmp/start.sh
 RUN			chmod +x /tmp/start.sh
 
@@ -37,7 +38,6 @@ ENTRYPOINT	["/tmp/start.sh"]
 
 
 # RUN			mkdir -p /run/nginx && chown -R nginx:nginx /run/nginx
-# RUN			mkdir -p /usr/share/webapps/
 # ADD			https://wordpress.org/latest.tar.gz /etc/
 # RUN			tar -xvf /etc/latest.tar.gz -C /etc > /dev/null && rm -f /etc/latest.tar.gz > /dev/null
 
