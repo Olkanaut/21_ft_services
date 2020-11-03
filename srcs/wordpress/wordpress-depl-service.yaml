@@ -41,9 +41,3 @@ spec:
         imagePullPolicy: Never
         ports:
         - containerPort: 5050
-      - name: nginx-container
-        image: wordpress-image
-        imagePullPolicy: Never
-        ports:
-        - containerPort: 5051
-

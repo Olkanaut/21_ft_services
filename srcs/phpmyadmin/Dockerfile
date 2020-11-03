@@ -3,7 +3,7 @@ FROM		alpine:latest
 RUN			apk update && apk upgrade
 
 RUN			apk add vim nginx openrc supervisor > /dev/null
-RUN			apk add php php7-mbstring php7-session php7-json php7-mysqli
+RUN			apk add php php7-fpm php7-mbstring php7-session php7-json php7-mysqli
 
 
 RUN			mkdir -p /run/nginx && chown -R nginx:nginx /run/nginx
@@ -25,7 +25,9 @@ RUN			chmod u+x /tmp/start.sh
 
 EXPOSE		5000
 
-ENTRYPOINT	["/tmp/start.sh"]
+ENTRYPOINT	/usr/bin/supervisord -c /etc/supervisord.conf
+
+# ENTRYPOINT	["/tmp/start.sh"]
 
 
 

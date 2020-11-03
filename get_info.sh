@@ -14,14 +14,18 @@ kubectl get pods -o wide ;
 # echo $(kubectl get svc nginx-service -o=custom-columns='m:status.loadBalancer.ingress' | sed -n 2p | tr -d "[maip:]")
 # kubectl exec -it nginx-deployment-694d76f59f-sdldj -- sh
 
-echo "_________________________wp__________________________"
+echo "________________________wp_________________________"
 minikube service wordpress-service --url ;
 echo $(kubectl get svc wordpress-service -o=custom-columns='m:status.loadBalancer.ingress' | sed -n 2p | tr -d "[maip:]")
 
-echo "________________________ftps_________________________"
+echo "_______________________ftps________________________"
 minikube service ftps-service --url ;
 echo $(kubectl get svc ftps-service -o=custom-columns='m:status.loadBalancer.ingress' | sed -n 2p | tr -d "[maip:]")
 
-echo "______________________telegraf_______________________"
+echo "_____________________telegraf______________________"
 minikube service telegraf-service --url ;
 echo $(kubectl get svc telegraf-service -o=custom-columns='m:status.loadBalancer.ingress' | sed -n 2p | tr -d "[maip:]")
+
+echo "________________________pma________________________"
+minikube service wordpress-service --url ;
+echo $(kubectl get svc phpmyadmin-service -o=custom-columns='m:status.loadBalancer.ingress' | sed -n 2p | tr -d "[maip:]")

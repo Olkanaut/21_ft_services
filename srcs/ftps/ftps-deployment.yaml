@@ -45,4 +45,3 @@ spec:
           name: ftps-data
         - containerPort: 21000
           name: ftps-pass
-
