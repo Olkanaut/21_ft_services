@@ -27,7 +27,7 @@ kubectl apply -f ./srcs/metallb/metallb.yaml ;
 
 echo "__________________________________ WORDPRESS"
 # kubectl create -f ./srcs/wordpress/wordpress-service.yaml
-docker build -t wordpress-image ./srcs/wordpress  > /dev/null
+docker build -t wordpress-image ./srcs/wordpress > /dev/null
 # kubectl apply -f ./srcs/wordpress/wordpress-deployment.yaml
 kubectl apply -f ./srcs/wordpress/wordpress-depl-service.yaml
 TEMP=$(kubectl get svc wordpress-service -o=custom-columns='m:status.loadBalancer.ingress' | sed -n 2p | tr -d "[maip:]")
@@ -69,7 +69,8 @@ kubectl apply -f ./srcs/influxdb/influxdb-deployment.yaml
 
 echo "__________________________________ Telegraf"
 docker build -t telegraf-image ./srcs/telegraf
-kubectl apply -f ./srcs/telegraf/telegraf-deployment.yaml
+kubectl apply -f ./srcs/telegraf/telegraf-secret.yaml
+kubectl apply -f ./srcs/telegraf/telegraf-depl-service.yaml
 
 echo "__________________________________ Grafana"
 docker build -t grafana-image ./srcs/grafana

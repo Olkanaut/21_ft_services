@@ -13,7 +13,7 @@ COPY		nginx.conf /etc/nginx/conf.d/default.conf
 
 
 ADD			https://files.phpmyadmin.net/phpMyAdmin/5.0.4/phpMyAdmin-5.0.4-all-languages.tar.gz /etc/
-RUN			tar -xf /etc/phpMyAdmin-5.0.4-all-languages.tar.gz -C /etc > /dev/null && rm -f /phpMyAdmin-5.0.4-all-languages.tar.gz > /dev/null
+RUN			tar -xf /etc/phpMyAdmin-5.0.4-all-languages.tar.gz -C /etc/ && rm -f /phpMyAdmin-5.0.4-all-languages.tar.gz > /dev/null
 RUN			mv /etc/phpMyAdmin-5.0.4-all-languages /www/phpmyadmin
 
 
