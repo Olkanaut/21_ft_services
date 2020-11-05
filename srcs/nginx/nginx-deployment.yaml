@@ -26,13 +26,5 @@ spec:
           name: http
         - containerPort: 443
           name: https
-        # - containerPort: 22
-        #   name: ssh
-
-# kubectl get deployment nginx-deployment -o yaml > nginx-deployment-result.yaml
-        # resources:
-        #   limits:
-        #     memory: "128Mi"
-        #     cpu: "500m"
-        #   requests:
-        #       memory: "64Mi"
+        - containerPort: 22
+          name: ssh

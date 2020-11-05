@@ -27,7 +27,7 @@ minikube service wordpress-service --url ;
 echo $(kubectl get svc phpmyadmin-service -o=custom-columns='m:status.loadBalancer.ingress' | sed -n 2p | tr -d "[maip:]")
 
 echo "_______________________nginx_______________________"
-minikube service wordpress-service --url ;
+minikube service nginx-service --url ;
 echo $(kubectl get svc nginx-service -o=custom-columns='m:status.loadBalancer.ingress' | sed -n 2p | tr -d "[maip:]")
 
 echo "_____________________influxdb______________________"

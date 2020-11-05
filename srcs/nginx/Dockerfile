@@ -11,6 +11,14 @@ RUN			apk add openrc
 
 VOLUME		[ "/sys/fs/cgroup" ]
 RUN			mkdir -p /run/nginx && chown -R nginx:nginx /run/nginx
+
+# RUN adduser -D -g 'www' www
+# RUN mkdir /www
+# RUN chown -R www:www /var/lib/nginx
+# RUN chown -R www:www /www
+
+
+
 RUN			rm -f /etc/nginx/conf.d/*.conf
 COPY		./nginx.conf /etc/nginx/conf.d/default.conf
 
@@ -24,15 +32,16 @@ COPY		./mykey.key /etc/nginx/ssl/key.key
 
 # RUN			sed -i "s%olololo%${IP}%" /etc/nginx/conf.d/default.conf
 # RUN			sed -i "s/olololo/${IP}/g" /etc/nginx/conf.d/default.conf
-RUN			echo "daemon off;" >> /etc/nginx/nginx.conf
+# RUN			echo "daemon off;" >> /etc/nginx/nginx.conf
 
 COPY		./supervisord.conf /etc/supervisord.conf
 RUN			chmod +rw /etc/supervisord.conf
-RUN			echo -e "bshangsPa$$word10\nbshangsPa$$word10" | adduser bshang
+RUN			echo -e "bshangsPassword10\nbshangsPassword10\n" | adduser bshang
 
 COPY		./start.sh /tmp/start.sh
 RUN			chmod u+x /tmp/start.sh
 
-EXPOSE		443 80
+EXPOSE		443 80 22
 
-ENTRYPOINT	["/tmp/start.sh"]
+ENTRYPOINT	sh /tmp/start.sh
+# ENTRYPOINT	[ "sh", "/tmp/start.sh" ]

@@ -6,6 +6,7 @@ minikube addons enable dashboard ;
 minikube addons enable metallb ;
 minikube addons enable metrics-server ;
 echo "__________________________________ addons enabled <<<\n" ;
+
 echo "__________________________________ metallb" ;
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.4/manifests/namespace.yaml ;
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.4/manifests/metallb.yaml ;
@@ -19,7 +20,7 @@ kubectl create -f ./srcs/nginx/nginx-service.yaml
 sleep 5
 TEMP=$(kubectl get svc nginx-service -o=custom-columns='m:status.loadBalancer.ingress' | sed -n 2p | tr -d "[maip:]")
 echo "${TEMP}" ;
-docker build -t nginx-image --build-arg IP=${TEMP} ./srcs/nginx
+# docker build -t nginx-image --build-arg IP=${TEMP} ./srcs/nginx
 docker build -t nginx-image ./srcs/nginx
 kubectl apply -f ./srcs/nginx/nginx-deployment.yaml
 TEMPA=$(kubectl get svc nginx-service -o=custom-columns='m:status.loadBalancer.ingress' | sed -n 2p | tr -d "[maip:]")
