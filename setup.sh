@@ -37,7 +37,6 @@ echo "__________________________________ phpMyAdmin"
 docker build -t phpmyadmin-image ./srcs/phpmyadmin
 kubectl apply -f ./srcs/phpmyadmin/phpmyadmin-depl-service.yaml
 
-
 echo "__________________________________ WORDPRESS"
 # kubectl create -f ./srcs/wordpress/wordpress-service.yaml > /dev/null
 docker build -t wordpress-image ./srcs/wordpress
@@ -45,8 +44,6 @@ docker build -t wordpress-image ./srcs/wordpress
 kubectl apply -f ./srcs/wordpress/wordpress-depl-service.yaml
 TEMP=$(kubectl get svc wordpress-service -o=custom-columns='m:status.loadBalancer.ingress' | sed -n 2p | tr -d "[maip:]")
 echo "${TEMP}" ;
-
-
 
 echo "__________________________________ FTPS"
 # kubectl create -f ./srcs/ftps/ftps-service.yaml
@@ -76,4 +73,5 @@ kubectl apply -f ./srcs/telegraf/telegraf-depl-service.yaml
 
 echo "__________________________________ Grafana"
 docker build -t grafana-image ./srcs/grafana
+kubectl apply -f ./srcs/grafana/grafana-config.yaml
 kubectl apply -f ./srcs/grafana/grafana-depl-service.yaml
