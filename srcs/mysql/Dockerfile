@@ -7,7 +7,7 @@ RUN			apk add openrc
 RUN			mkdir -p /run/mysql && chown -R mysql:mysql /run/mysql
 
 COPY		/createdb.sql /tmp/
-# COPY		/wordpress.sql /tmp/wordpress.sql
+COPY		/wordpress.sql /tmp/wordpress.sql
 COPY		/my.cnf /etc/my.cnf
 COPY		/start.sh /tmp/
 RUN			chmod +x /tmp/start.sh

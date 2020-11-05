@@ -29,3 +29,11 @@ echo $(kubectl get svc telegraf-service -o=custom-columns='m:status.loadBalancer
 echo "________________________pma________________________"
 minikube service wordpress-service --url ;
 echo $(kubectl get svc phpmyadmin-service -o=custom-columns='m:status.loadBalancer.ingress' | sed -n 2p | tr -d "[maip:]")
+
+echo "_______________________nginx_______________________"
+minikube service wordpress-service --url ;
+echo $(kubectl get svc nginx-service -o=custom-columns='m:status.loadBalancer.ingress' | sed -n 2p | tr -d "[maip:]")
+
+echo "_____________________influxdb______________________"
+minikube service influxdb-service --url ;
+echo $(kubectl get svc influxdb-service -o=custom-columns='m:status.loadBalancer.ingress' | sed -n 2p | tr -d "[maip:]")

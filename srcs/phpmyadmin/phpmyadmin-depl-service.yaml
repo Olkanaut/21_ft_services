@@ -41,11 +41,6 @@ spec:
         imagePullPolicy: Never
         ports:
         - containerPort: 5000
-      - name: nginx-container
-        image: phpmyadmin-image
-        imagePullPolicy: Never
-        ports:
-        - containerPort: 5000
         # env:
         # - name: PMA_HOST
         #   value: mysql-service

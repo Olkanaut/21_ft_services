@@ -33,17 +33,19 @@ docker build -t mysql-image ./srcs/mysql
 # kubectl apply -f ./srcs/mysql/mysql-pvc.yaml
 kubectl apply -f ./srcs/mysql/mysql-depl-service-pv-pvc.yaml
 
+echo "__________________________________ phpMyAdmin"
+docker build -t phpmyadmin-image ./srcs/phpmyadmin
+kubectl apply -f ./srcs/phpmyadmin/phpmyadmin-depl-service.yaml
+
+
 echo "__________________________________ WORDPRESS"
-# kubectl create -f ./srcs/wordpress/wordpress-service.yaml
-docker build -t wordpress-image ./srcs/wordpress > /dev/null
+# kubectl create -f ./srcs/wordpress/wordpress-service.yaml > /dev/null
+docker build -t wordpress-image ./srcs/wordpress
 # kubectl apply -f ./srcs/wordpress/wordpress-deployment.yaml
 kubectl apply -f ./srcs/wordpress/wordpress-depl-service.yaml
 TEMP=$(kubectl get svc wordpress-service -o=custom-columns='m:status.loadBalancer.ingress' | sed -n 2p | tr -d "[maip:]")
 echo "${TEMP}" ;
 
-echo "__________________________________ phpMyAdmin"
-docker build -t phpmyadmin-image ./srcs/phpmyadmin
-kubectl apply -f ./srcs/phpmyadmin/phpmyadmin-depl-service.yaml
 
 
 echo "__________________________________ FTPS"
