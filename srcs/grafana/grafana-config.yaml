@@ -6,8 +6,8 @@ metadata:
     app: grafana
 type: Opaque
 stringData:
-  GF_SECURITY_ADMIN_USER: admin
-  GF_SECURITY_ADMIN_PASSWORD: admin
+  GF_SECURITY_ADMIN_USER: bshangbshang
+  GF_SECURITY_ADMIN_PASSWORD: mypassmypass
 
 ---
 
@@ -182,10 +182,10 @@ data:
     ;disable_initial_admin_creation = false
 
     # default admin user, created on startup
-    ;admin_user = bshang
+    admin_user = bshang
 
     # default admin password, can be changed before first start of grafana,  or in profile settings
-    ;admin_password = mypass
+    admin_password = mypass
 
     # used for signing
     ;secret_key = SW2YcwTIb9zpOOhoPsMm

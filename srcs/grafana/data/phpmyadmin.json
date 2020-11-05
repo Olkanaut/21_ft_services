@@ -103,7 +103,7 @@
             {
               "key": "app",
               "operator": "=",
-              "value": "ftps"
+              "value": "phpmyadmin"
             }
           ]
         }
@@ -112,7 +112,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "ftps - container_net - rx_packets",
+      "title": "pam - container_net - rx_packets",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -234,7 +234,7 @@
             {
               "key": "app",
               "operator": "=",
-              "value": "ftps"
+              "value": "phpmyadmin"
             }
           ]
         }
@@ -243,7 +243,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "ftps - container_mem - usage",
+      "title": "pam - container_mem - usage",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -365,7 +365,7 @@
             {
               "key": "app",
               "operator": "=",
-              "value": "ftps"
+              "value": "phpmyadmin"
             }
           ]
         }
@@ -374,7 +374,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "ftps - container_status - uptime_ns",
+      "title": "pam - container_status - uptime_ns",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -424,7 +424,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "ftps",
-  "uid": "qN1h6hhGz",
+  "title": "phpmyadmin",
+  "uid": "WVcur22Gk",
   "version": 1
 }

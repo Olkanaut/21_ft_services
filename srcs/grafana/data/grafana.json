@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 8,
+  "id": 12,
   "links": [],
   "panels": [
     {
@@ -103,7 +103,7 @@
             {
               "key": "app",
               "operator": "=",
-              "value": "ftps"
+              "value": "grafana"
             }
           ]
         }
@@ -112,7 +112,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "ftps - container_net - rx_packets",
+      "title": "grafana - container_net - rx_packets",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -234,7 +234,7 @@
             {
               "key": "app",
               "operator": "=",
-              "value": "ftps"
+              "value": "grafana"
             }
           ]
         }
@@ -243,7 +243,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "ftps - container_mem - usage",
+      "title": "grafana - container_mem - usage",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -365,7 +365,7 @@
             {
               "key": "app",
               "operator": "=",
-              "value": "ftps"
+              "value": "grafana"
             }
           ]
         }
@@ -374,7 +374,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "ftps - container_status - uptime_ns",
+      "title": "grafana - container_status - uptime_ns",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -424,7 +424,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "ftps",
-  "uid": "qN1h6hhGz",
+  "title": "grafana",
+  "uid": "HI1bj2hGk",
   "version": 1
 }
