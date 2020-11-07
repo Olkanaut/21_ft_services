@@ -1,6 +1,13 @@
 #!/bin/bash
 
-minikube start --driver=virtualbox --memory='3900MB' --disk-size='10000MB' ;
+# export MINIKUBE_HOME=/Users/bshang/goinfre/.minikube ;
+# export PATH=$MINIKUBE_HOME/bin:$PATH ;
+# export KUBECONFIG=$MINIKUBE_HOME/.kube/config ;
+# export KUBE_EDITOR="code -w" ;
+# minikube start --driver=virtualbox --disk-size=5000MB;
+
+
+# minikube start --driver=virtualbox --memory='3900MB' --disk-size='10000MB' ;
 
 minikube addons enable dashboard ;
 minikube addons enable metallb ;
@@ -8,8 +15,8 @@ minikube addons enable metrics-server ;
 echo "__________________________________ addons enabled <<<\n" ;
 
 echo "__________________________________ metallb" ;
-kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.4/manifests/namespace.yaml ;
-kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.4/manifests/metallb.yaml ;
+# kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.4/manifests/namespace.yaml ;
+# kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.4/manifests/metallb.yaml ;
 kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)" ;
 kubectl apply -f ./srcs/metallb/metallb.yaml ;
 
