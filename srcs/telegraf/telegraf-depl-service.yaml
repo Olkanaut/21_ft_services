@@ -34,22 +34,22 @@ data:
       docker_label_exclude = []
       tag_env = ["JAVA_HOME", "HEAP_SIZE"]
 
----
+# ---
 
-apiVersion: v1
-kind: Service
-metadata:
-  name: telegraf-service
-  labels:
-    app: telegraf
-spec:
-  selector:
-    app: telegraf
-  ports:
-    - name: port
-      port: 999
-  type: LoadBalancer
-  loadBalancerIP: 192.168.99.235
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: telegraf-service
+#   labels:
+#     app: telegraf
+# spec:
+#   selector:
+#     app: telegraf
+#   ports:
+#     - name: port
+#       port: 999
+#   type: LoadBalancer
+#   loadBalancerIP: 192.168.99.235
 
 ---
 

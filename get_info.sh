@@ -34,9 +34,9 @@ echo "_____________________influxdb______________________"
 minikube service influxdb-service --url ;
 echo $(kubectl get svc influxdb-service -o=custom-columns='m:status.loadBalancer.ingress' | sed -n 2p | tr -d "[maip:]")
 
-echo "_____________________telegraf______________________"
-minikube service telegraf-service --url ;
-echo $(kubectl get svc telegraf-service -o=custom-columns='m:status.loadBalancer.ingress' | sed -n 2p | tr -d "[maip:]")
+# echo "_____________________telegraf______________________"
+# minikube service telegraf-service --url ;
+# echo $(kubectl get svc telegraf-service -o=custom-columns='m:status.loadBalancer.ingress' | sed -n 2p | tr -d "[maip:]")
 
 echo "______________________grafana______________________"
 minikube service grafana-service --url ;
