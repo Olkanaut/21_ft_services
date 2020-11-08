@@ -19,8 +19,9 @@ RUN			mkdir -p /run/nginx && chown -R nginx:nginx /run/nginx
 
 
 
-RUN			rm -f /etc/nginx/conf.d/*.conf
-COPY		./nginx.conf /etc/nginx/conf.d/default.conf
+# RUN			rm -f /etc/nginx/conf.d/*.conf
+# COPY		./nginx.conf /etc/nginx/conf.d/default.conf
+COPY		./nginx.conf /etc/nginx/.
 
 COPY		./mycert.crt /etc/nginx/ssl/cert.crt
 COPY		./mykey.key /etc/nginx/ssl/key.key
