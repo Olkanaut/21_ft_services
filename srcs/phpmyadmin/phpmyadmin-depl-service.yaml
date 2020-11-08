@@ -5,7 +5,7 @@ metadata:
   labels:
     app: phpmyadmin
   annotations:
-    metallb.universe.tf/allow-shared-ip: wp
+    metallb.universe.tf/allow-shared-ip: metallb
 spec:
   selector:
     app: phpmyadmin
