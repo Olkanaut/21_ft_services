@@ -18,7 +18,8 @@ RUN			echo testololo > /home/bshang/test_file
 
 COPY		./vsftpd.conf /etc/vsftpd/myvsftpd.conf
 COPY		./start.sh /tmp/.
+RUN			chmod +x /tmp/start.sh
 
 EXPOSE		21 20 21000
 
-ENTRYPOINT	sh /tmp/start.sh
+ENTRYPOINT	[ "/tmp/start.sh" ]
