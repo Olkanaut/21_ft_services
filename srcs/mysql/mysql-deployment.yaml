@@ -1,32 +1,19 @@
-kind: PersistentVolume
 apiVersion: v1
+kind: Service
 metadata:
-  name: mysql-pv
+  name: mysql-service
   labels:
     app: mysql
 spec:
-  storageClassName: manual
-  capacity:
-    storage: 2Gi
-  persistentVolumeReclaimPolicy: Recycle
-  accessModes:
-    - ReadWriteMany
-  hostPath:
-    path: "/var/lib/pv-mysql"
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: mysql-pvc
-  labels:
+  selector:
     app: mysql
-spec:
-  accessModes:
-    - ReadWriteMany
-  resources:
-    requests:
-      storage: 2Gi
+  ports:
+  - port: 3306
+    name: mysql
+    targetPort: 3306
+
 ---
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -54,9 +41,9 @@ spec:
         - containerPort: 3306
           name: mysql
         volumeMounts:
-        - name: mysql-pv
-          mountPath: /var/lib/mysql
+          - mountPath: "/var/lib/mysql"
+            name: mysql-pv
       volumes:
-      - name: mysql-pv
-        persistentVolumeClaim:
-        claimName: mysql-pvc
+        - name: mysql-pv
+          persistentVolumeClaim:
+              claimName: mysql-pvc

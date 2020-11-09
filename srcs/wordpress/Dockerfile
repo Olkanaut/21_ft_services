@@ -1,13 +1,8 @@
 FROM		alpine:latest
 
 RUN			apk update && apk upgrade
-RUN			apk add php7 \
-			php7-mysqli \
-			php7-json \
-			php7-mbstring \
-			php7-session \
-			php7-fpm \
-			php7-zlib
+RUN			apk add php7 php7-mysqli php7-json php7-mbstring \
+			php7-session php7-fpm php7-zlib > /dev/null
 
 RUN			apk add nginx openrc supervisor
 RUN			mkdir -p /run/nginx && chown -R nginx:nginx /run/nginx

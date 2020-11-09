@@ -40,9 +40,6 @@ define( 'DB_COLLATE', '' );
 define( 'WP_HOME', 'http://192.168.99.231:5050' ); # EXTERNAL IP
 define( 'WP_SITEURL', 'http://192.168.99.231:5050' ); # EXTERNAL IP
 
-// define( 'WP_HOME', 'http://wordpress-service:5050' ); # EXTERNAL IP
-// define( 'WP_SITEURL', 'http://wordpress-service:5050' ); # EXTERNAL IP
-
 /**#@+
  * Authentication Unique Keys and Salts.
  *
