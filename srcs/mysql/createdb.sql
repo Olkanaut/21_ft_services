@@ -1,5 +1,0 @@
-FLUSH PRIVILEGES;
-CREATE DATABASE wordpress;
-CREATE USER 'bshang'@'%' IDENTIFIED BY 'mypass';
-GRANT ALL PRIVILEGES ON wordpress.* TO 'bshang'@'%';
-FLUSH PRIVILEGES;
